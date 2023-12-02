@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "representative_categories",
+  "info": {
+    "singularName": "representative-category",
+    "pluralName": "representative-categories",
+    "displayName": "Representative Category"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "nameMalayalam": {
+      "type": "string"
+    },
+    "representatives": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::representative.representative",
+      "mappedBy": "representative_category"
+    }
+  }
+}

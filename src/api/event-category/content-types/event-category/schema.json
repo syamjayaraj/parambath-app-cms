@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "event_categories",
+  "info": {
+    "singularName": "event-category",
+    "pluralName": "event-categories",
+    "displayName": "Event Category",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "nameMalayalam": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "events": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::event.event",
+      "mappedBy": "event_category"
+    }
+  }
+}

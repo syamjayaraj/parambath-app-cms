@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "online_service_categories",
+  "info": {
+    "singularName": "online-service-category",
+    "pluralName": "online-service-categories",
+    "displayName": "Online Service Category"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "nameMalayalam": {
+      "type": "string"
+    },
+    "online_services": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::online-service.online-service",
+      "mappedBy": "online_service_category"
+    }
+  }
+}

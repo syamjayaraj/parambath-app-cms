@@ -920,12 +920,52 @@ export interface ApiBusinessCategoryBusinessCategory
   };
 }
 
+export interface ApiContributorContributor extends Schema.CollectionType {
+  collectionName: 'contributors';
+  info: {
+    singularName: 'contributor';
+    pluralName: 'contributors';
+    displayName: 'Contributor';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    icon: Attribute.Media;
+    images: Attribute.Media;
+    role: Attribute.String;
+    instagram: Attribute.String;
+    facebook: Attribute.String;
+    phoneNumber: Attribute.String;
+    phoneNumber2: Attribute.String;
+    email: Attribute.String;
+    whatsapp: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contributor.contributor',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contributor.contributor',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiEmergencyEmergency extends Schema.CollectionType {
   collectionName: 'emergencies';
   info: {
     singularName: 'emergency';
     pluralName: 'emergencies';
     displayName: 'Emergency';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -951,6 +991,7 @@ export interface ApiEmergencyEmergency extends Schema.CollectionType {
     facebook: Attribute.String;
     instagram: Attribute.String;
     youtube: Attribute.String;
+    images: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1002,6 +1043,513 @@ export interface ApiEmergencyCategoryEmergencyCategory
       'oneToOne',
       'admin::user'
     > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiEventEvent extends Schema.CollectionType {
+  collectionName: 'events';
+  info: {
+    singularName: 'event';
+    pluralName: 'events';
+    displayName: 'Event';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    event_category: Attribute.Relation<
+      'api::event.event',
+      'manyToOne',
+      'api::event-category.event-category'
+    >;
+    name: Attribute.String;
+    nameMalayalam: Attribute.String;
+    about: Attribute.Text;
+    from: Attribute.Date;
+    to: Attribute.Date;
+    phoneNumber: Attribute.String;
+    phoneNumber2: Attribute.String;
+    email: Attribute.String;
+    website: Attribute.String;
+    whatsapp: Attribute.String;
+    facebook: Attribute.String;
+    instagram: Attribute.String;
+    youtube: Attribute.String;
+    schedule: Attribute.Component<'event.schedule', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::event.event',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::event.event',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiEventCategoryEventCategory extends Schema.CollectionType {
+  collectionName: 'event_categories';
+  info: {
+    singularName: 'event-category';
+    pluralName: 'event-categories';
+    displayName: 'Event Category';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    nameMalayalam: Attribute.String;
+    icon: Attribute.String;
+    events: Attribute.Relation<
+      'api::event-category.event-category',
+      'oneToMany',
+      'api::event.event'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::event-category.event-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::event-category.event-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHelpHelp extends Schema.CollectionType {
+  collectionName: 'helps';
+  info: {
+    singularName: 'help';
+    pluralName: 'helps';
+    displayName: 'Help';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    titleDescription: Attribute.Component<'common.title-description', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::help.help', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::help.help', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMoreMore extends Schema.CollectionType {
+  collectionName: 'mores';
+  info: {
+    singularName: 'more';
+    pluralName: 'mores';
+    displayName: 'More';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    more_category: Attribute.Relation<
+      'api::more.more',
+      'manyToOne',
+      'api::more-category.more-category'
+    >;
+    name: Attribute.String;
+    nameMalayalam: Attribute.String;
+    content: Attribute.Blocks;
+    label: Attribute.String;
+    video: Attribute.String;
+    url: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::more.more', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::more.more', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMoreCategoryMoreCategory extends Schema.CollectionType {
+  collectionName: 'more_categories';
+  info: {
+    singularName: 'more-category';
+    pluralName: 'more-categories';
+    displayName: 'More Category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    nameMalayalam: Attribute.String;
+    icon: Attribute.Media;
+    mores: Attribute.Relation<
+      'api::more-category.more-category',
+      'oneToMany',
+      'api::more.more'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::more-category.more-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::more-category.more-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiOnlineServiceOnlineService extends Schema.CollectionType {
+  collectionName: 'online_services';
+  info: {
+    singularName: 'online-service';
+    pluralName: 'online-services';
+    displayName: 'Online Service';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    online_service_category: Attribute.Relation<
+      'api::online-service.online-service',
+      'manyToOne',
+      'api::online-service-category.online-service-category'
+    >;
+    name: Attribute.String;
+    nameMalayalam: Attribute.String;
+    about: Attribute.Text;
+    email: Attribute.String;
+    phoneNumber: Attribute.String;
+    phoneNumber2: Attribute.String;
+    url: Attribute.String;
+    facebook: Attribute.String;
+    instagram: Attribute.String;
+    youtube: Attribute.String;
+    whatsapp: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::online-service.online-service',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::online-service.online-service',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiOnlineServiceCategoryOnlineServiceCategory
+  extends Schema.CollectionType {
+  collectionName: 'online_service_categories';
+  info: {
+    singularName: 'online-service-category';
+    pluralName: 'online-service-categories';
+    displayName: 'Online Service Category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    nameMalayalam: Attribute.String;
+    online_services: Attribute.Relation<
+      'api::online-service-category.online-service-category',
+      'oneToMany',
+      'api::online-service.online-service'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::online-service-category.online-service-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::online-service-category.online-service-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiRepresentativeRepresentative extends Schema.CollectionType {
+  collectionName: 'representatives';
+  info: {
+    singularName: 'representative';
+    pluralName: 'representatives';
+    displayName: 'Representative';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    nameMalayalam: Attribute.String;
+    about: Attribute.Text;
+    phoneNumber: Attribute.String;
+    phoneNumber2: Attribute.String;
+    place: Attribute.String;
+    address: Attribute.Text;
+    email: Attribute.String;
+    website: Attribute.String;
+    facebook: Attribute.String;
+    instagram: Attribute.String;
+    whatsapp: Attribute.String;
+    youtube: Attribute.String;
+    images: Attribute.Media;
+    representative_category: Attribute.Relation<
+      'api::representative.representative',
+      'manyToOne',
+      'api::representative-category.representative-category'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::representative.representative',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::representative.representative',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiRepresentativeCategoryRepresentativeCategory
+  extends Schema.CollectionType {
+  collectionName: 'representative_categories';
+  info: {
+    singularName: 'representative-category';
+    pluralName: 'representative-categories';
+    displayName: 'Representative Category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    nameMalayalam: Attribute.String;
+    representatives: Attribute.Relation<
+      'api::representative-category.representative-category',
+      'oneToMany',
+      'api::representative.representative'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::representative-category.representative-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::representative-category.representative-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSettingSetting extends Schema.SingleType {
+  collectionName: 'settings';
+  info: {
+    singularName: 'setting';
+    pluralName: 'settings';
+    displayName: 'Setting';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    phoneNumber: Attribute.String;
+    phoneNumber2: Attribute.String;
+    email: Attribute.String;
+    whatsapp: Attribute.String;
+    facebook: Attribute.String;
+    instagram: Attribute.String;
+    youtube: Attribute.String;
+    helpVideo: Attribute.String;
+    appUrlAndroid: Attribute.String;
+    appUrlIos: Attribute.String;
+    address: Attribute.Text;
+    about: Attribute.Text;
+    icon: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::setting.setting',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::setting.setting',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSmallBusinessSmallBusiness extends Schema.CollectionType {
+  collectionName: 'small_businesses';
+  info: {
+    singularName: 'small-business';
+    pluralName: 'small-businesses';
+    displayName: 'Small Business';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    small_business_category: Attribute.Relation<
+      'api::small-business.small-business',
+      'manyToOne',
+      'api::small-business-category.small-business-category'
+    >;
+    name: Attribute.String;
+    nameMalayalam: Attribute.String;
+    about: Attribute.Text;
+    ownerName: Attribute.String;
+    ownerNameMalayalam: Attribute.String;
+    phoneNumber: Attribute.String;
+    phoneNumber2: Attribute.String;
+    timing: Attribute.Component<'business.timing', true>;
+    place: Attribute.String;
+    address: Attribute.Text;
+    email: Attribute.String;
+    website: Attribute.String;
+    facebook: Attribute.String;
+    instagram: Attribute.String;
+    whatsapp: Attribute.String;
+    onlineBookingUrl: Attribute.String;
+    youtube: Attribute.String;
+    upi: Attribute.Boolean;
+    card: Attribute.Boolean;
+    onlineDelivery: Attribute.Boolean;
+    images: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::small-business.small-business',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::small-business.small-business',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSmallBusinessCategorySmallBusinessCategory
+  extends Schema.CollectionType {
+  collectionName: 'small_business_categories';
+  info: {
+    singularName: 'small-business-category';
+    pluralName: 'small-business-categories';
+    displayName: 'Small Business Category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    nameMalayalam: Attribute.String;
+    small_businesses: Attribute.Relation<
+      'api::small-business-category.small-business-category',
+      'oneToMany',
+      'api::small-business.small-business'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::small-business-category.small-business-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::small-business-category.small-business-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTermTerm extends Schema.SingleType {
+  collectionName: 'terms';
+  info: {
+    singularName: 'term';
+    pluralName: 'terms';
+    displayName: 'Term';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Attribute.Blocks;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::term.term', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::term.term', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
@@ -1184,8 +1732,22 @@ declare module '@strapi/types' {
       'api::bus-timing.bus-timing': ApiBusTimingBusTiming;
       'api::business.business': ApiBusinessBusiness;
       'api::business-category.business-category': ApiBusinessCategoryBusinessCategory;
+      'api::contributor.contributor': ApiContributorContributor;
       'api::emergency.emergency': ApiEmergencyEmergency;
       'api::emergency-category.emergency-category': ApiEmergencyCategoryEmergencyCategory;
+      'api::event.event': ApiEventEvent;
+      'api::event-category.event-category': ApiEventCategoryEventCategory;
+      'api::help.help': ApiHelpHelp;
+      'api::more.more': ApiMoreMore;
+      'api::more-category.more-category': ApiMoreCategoryMoreCategory;
+      'api::online-service.online-service': ApiOnlineServiceOnlineService;
+      'api::online-service-category.online-service-category': ApiOnlineServiceCategoryOnlineServiceCategory;
+      'api::representative.representative': ApiRepresentativeRepresentative;
+      'api::representative-category.representative-category': ApiRepresentativeCategoryRepresentativeCategory;
+      'api::setting.setting': ApiSettingSetting;
+      'api::small-business.small-business': ApiSmallBusinessSmallBusiness;
+      'api::small-business-category.small-business-category': ApiSmallBusinessCategorySmallBusinessCategory;
+      'api::term.term': ApiTermTerm;
       'api::vehicle.vehicle': ApiVehicleVehicle;
       'api::vehicle-category.vehicle-category': ApiVehicleCategoryVehicleCategory;
       'api::work.work': ApiWorkWork;

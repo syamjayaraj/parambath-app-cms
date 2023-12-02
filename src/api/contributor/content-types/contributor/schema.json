@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contributors",
+  "info": {
+    "singularName": "contributor",
+    "pluralName": "contributors",
+    "displayName": "Contributor"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "images": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "role": {
+      "type": "string"
+    },
+    "instagram": {
+      "type": "string"
+    },
+    "facebook": {
+      "type": "string"
+    },
+    "phoneNumber": {
+      "type": "string"
+    },
+    "phoneNumber2": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "whatsapp": {
+      "type": "string"
+    }
+  }
+}

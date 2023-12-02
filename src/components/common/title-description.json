@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_common_title_descriptions",
+  "info": {
+    "displayName": "titleDescription",
+    "icon": "apps",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "emergencies",
+  "collectionName": "representatives",
   "info": {
-    "singularName": "emergency",
-    "pluralName": "emergencies",
-    "displayName": "Emergency",
+    "singularName": "representative",
+    "pluralName": "representatives",
+    "displayName": "Representative",
     "description": ""
   },
   "options": {
@@ -12,22 +12,10 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "emergency_category": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::emergency-category.emergency-category",
-      "inversedBy": "emergencies"
-    },
     "name": {
       "type": "string"
     },
     "nameMalayalam": {
-      "type": "string"
-    },
-    "ownerName": {
-      "type": "string"
-    },
-    "ownerNameMalayalam": {
       "type": "string"
     },
     "about": {
@@ -39,19 +27,16 @@
     "phoneNumber2": {
       "type": "string"
     },
-    "email": {
-      "type": "string"
-    },
-    "website": {
-      "type": "string"
-    },
     "place": {
       "type": "string"
     },
     "address": {
       "type": "text"
     },
-    "whatsapp": {
+    "email": {
+      "type": "string"
+    },
+    "website": {
       "type": "string"
     },
     "facebook": {
@@ -60,18 +45,28 @@
     "instagram": {
       "type": "string"
     },
+    "whatsapp": {
+      "type": "string"
+    },
     "youtube": {
       "type": "string"
     },
     "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
+    },
+    "representative_category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::representative-category.representative-category",
+      "inversedBy": "representatives"
     }
   }
 }

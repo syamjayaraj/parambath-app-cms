@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_event_schedules",
+  "info": {
+    "displayName": "schedule",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "day": {
+      "type": "string"
+    },
+    "scheduleDay": {
+      "displayName": "scheduleDay",
+      "type": "component",
+      "repeatable": true,
+      "component": "event.schedule-day"
+    }
+  }
+}

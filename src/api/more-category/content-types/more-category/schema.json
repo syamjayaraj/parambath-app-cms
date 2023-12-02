@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "more_categories",
+  "info": {
+    "singularName": "more-category",
+    "pluralName": "more-categories",
+    "displayName": "More Category"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "nameMalayalam": {
+      "type": "string"
+    },
+    "icon": {
+      "allowedTypes": [
+        "images",
+        "videos",
+        "audios",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "mores": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::more.more",
+      "mappedBy": "more_category"
+    }
+  }
+}

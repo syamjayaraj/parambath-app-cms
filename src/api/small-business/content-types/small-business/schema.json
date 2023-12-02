@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "emergencies",
+  "collectionName": "small_businesses",
   "info": {
-    "singularName": "emergency",
-    "pluralName": "emergencies",
-    "displayName": "Emergency",
+    "singularName": "small-business",
+    "pluralName": "small-businesses",
+    "displayName": "Small Business",
     "description": ""
   },
   "options": {
@@ -12,11 +12,11 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "emergency_category": {
+    "small_business_category": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "api::emergency-category.emergency-category",
-      "inversedBy": "emergencies"
+      "target": "api::small-business-category.small-business-category",
+      "inversedBy": "small_businesses"
     },
     "name": {
       "type": "string"
@@ -24,14 +24,14 @@
     "nameMalayalam": {
       "type": "string"
     },
+    "about": {
+      "type": "text"
+    },
     "ownerName": {
       "type": "string"
     },
     "ownerNameMalayalam": {
       "type": "string"
-    },
-    "about": {
-      "type": "text"
     },
     "phoneNumber": {
       "type": "string"
@@ -39,11 +39,10 @@
     "phoneNumber2": {
       "type": "string"
     },
-    "email": {
-      "type": "string"
-    },
-    "website": {
-      "type": "string"
+    "timing": {
+      "type": "component",
+      "repeatable": true,
+      "component": "business.timing"
     },
     "place": {
       "type": "string"
@@ -51,7 +50,10 @@
     "address": {
       "type": "text"
     },
-    "whatsapp": {
+    "email": {
+      "type": "string"
+    },
+    "website": {
       "type": "string"
     },
     "facebook": {
@@ -60,8 +62,23 @@
     "instagram": {
       "type": "string"
     },
+    "whatsapp": {
+      "type": "string"
+    },
+    "onlineBookingUrl": {
+      "type": "string"
+    },
     "youtube": {
       "type": "string"
+    },
+    "upi": {
+      "type": "boolean"
+    },
+    "card": {
+      "type": "boolean"
+    },
+    "onlineDelivery": {
+      "type": "boolean"
     },
     "images": {
       "allowedTypes": [

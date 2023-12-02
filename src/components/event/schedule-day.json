@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_event_schedule_days",
+  "info": {
+    "displayName": "scheduleDay",
+    "icon": "arrowRight"
+  },
+  "options": {},
+  "attributes": {
+    "time": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

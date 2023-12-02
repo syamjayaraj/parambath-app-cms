@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "emergencies",
+  "collectionName": "events",
   "info": {
-    "singularName": "emergency",
-    "pluralName": "emergencies",
-    "displayName": "Emergency",
+    "singularName": "event",
+    "pluralName": "events",
+    "displayName": "Event",
     "description": ""
   },
   "options": {
@@ -12,11 +12,11 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "emergency_category": {
+    "event_category": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "api::emergency-category.emergency-category",
-      "inversedBy": "emergencies"
+      "target": "api::event-category.event-category",
+      "inversedBy": "events"
     },
     "name": {
       "type": "string"
@@ -24,14 +24,14 @@
     "nameMalayalam": {
       "type": "string"
     },
-    "ownerName": {
-      "type": "string"
-    },
-    "ownerNameMalayalam": {
-      "type": "string"
-    },
     "about": {
       "type": "text"
+    },
+    "from": {
+      "type": "date"
+    },
+    "to": {
+      "type": "date"
     },
     "phoneNumber": {
       "type": "string"
@@ -45,12 +45,6 @@
     "website": {
       "type": "string"
     },
-    "place": {
-      "type": "string"
-    },
-    "address": {
-      "type": "text"
-    },
     "whatsapp": {
       "type": "string"
     },
@@ -63,15 +57,11 @@
     "youtube": {
       "type": "string"
     },
-    "images": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": true
+    "schedule": {
+      "displayName": "schedule",
+      "type": "component",
+      "repeatable": true,
+      "component": "event.schedule"
     }
   }
 }

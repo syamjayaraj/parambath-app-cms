@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "helps",
+  "info": {
+    "singularName": "help",
+    "pluralName": "helps",
+    "displayName": "Help",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titleDescription": {
+      "displayName": "titleDescription",
+      "type": "component",
+      "repeatable": true,
+      "component": "common.title-description"
+    }
+  }
+}

@@ -38,11 +38,53 @@ export interface CommonName extends Schema.Component {
   };
 }
 
+export interface CommonTitleDescription extends Schema.Component {
+  collectionName: 'components_common_title_descriptions';
+  info: {
+    displayName: 'titleDescription';
+    icon: 'apps';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+  };
+}
+
+export interface EventScheduleDay extends Schema.Component {
+  collectionName: 'components_event_schedule_days';
+  info: {
+    displayName: 'scheduleDay';
+    icon: 'arrowRight';
+  };
+  attributes: {
+    time: Attribute.String;
+    title: Attribute.String;
+    description: Attribute.Text;
+  };
+}
+
+export interface EventSchedule extends Schema.Component {
+  collectionName: 'components_event_schedules';
+  info: {
+    displayName: 'schedule';
+    icon: 'bulletList';
+  };
+  attributes: {
+    title: Attribute.String;
+    day: Attribute.String;
+    scheduleDay: Attribute.Component<'event.schedule-day', true>;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'business.timing': BusinessTiming;
       'common.name': CommonName;
+      'common.title-description': CommonTitleDescription;
+      'event.schedule-day': EventScheduleDay;
+      'event.schedule': EventSchedule;
     }
   }
 }
