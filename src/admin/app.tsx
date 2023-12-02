@@ -1,5 +1,12 @@
 export default {
   config: {
+    translations: {
+      en: {
+        "Auth.form.welcome.title": "Welcome to Parambath App",
+        "Auth.form.welcome.subtitle": "Log in to your account",
+        "app.components.LeftMenu.navbrand.title": "Parambath App",
+      },
+    },
     locales: [
       // 'ar',
       // 'fr',
@@ -31,5 +38,6 @@ export default {
   },
   bootstrap(app: any) {
     console.log(app);
+    document.title = "Admin Dashboard - Parambath App";
   },
 };
