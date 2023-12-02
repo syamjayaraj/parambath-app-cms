@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "emergency_categories",
+  "info": {
+    "singularName": "emergency-category",
+    "pluralName": "emergency-categories",
+    "displayName": "Emergency Category"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "nameMalayalam": {
+      "type": "string"
+    },
+    "emergencies": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::emergency.emergency",
+      "mappedBy": "emergency_category"
+    }
+  }
+}

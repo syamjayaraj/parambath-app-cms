@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "workers",
+  "info": {
+    "singularName": "worker",
+    "pluralName": "workers",
+    "displayName": "Worker",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "work": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::work.work",
+      "inversedBy": "workers"
+    },
+    "name": {
+      "type": "string"
+    },
+    "about": {
+      "type": "text"
+    },
+    "address": {
+      "type": "text"
+    },
+    "place": {
+      "type": "string"
+    },
+    "phoneNumber": {
+      "type": "string"
+    },
+    "phoneNumber2": {
+      "type": "string"
+    },
+    "whatsapp": {
+      "type": "string"
+    },
+    "instagram": {
+      "type": "string"
+    },
+    "facebook": {
+      "type": "string"
+    },
+    "website": {
+      "type": "string"
+    },
+    "nameMalayalam": {
+      "type": "string"
+    },
+    "images": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

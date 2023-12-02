@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "works",
+  "info": {
+    "singularName": "work",
+    "pluralName": "works",
+    "displayName": "Work"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "nameMalayalam": {
+      "type": "string"
+    },
+    "workers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::worker.worker",
+      "mappedBy": "work"
+    }
+  }
+}

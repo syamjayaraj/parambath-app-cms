@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "autos",
+  "info": {
+    "singularName": "auto",
+    "pluralName": "autos",
+    "displayName": "Auto",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "phoneNumber": {
+      "type": "string"
+    },
+    "phoneNumber2": {
+      "type": "string"
+    },
+    "vehicleNumber": {
+      "type": "string"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "auto_stand": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::auto-stand.auto-stand",
+      "inversedBy": "autos"
+    },
+    "ownerName": {
+      "type": "string"
+    },
+    "nameMalayalam": {
+      "type": "string"
+    },
+    "ownerNameMalayalam": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bus_routes",
+  "info": {
+    "singularName": "bus-route",
+    "pluralName": "bus-routes",
+    "displayName": "Bus Route"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "from": {
+      "type": "string"
+    },
+    "fromMalayalam": {
+      "type": "string"
+    },
+    "to": {
+      "type": "string"
+    },
+    "toMalayalam": {
+      "type": "string"
+    },
+    "bus_timings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bus-timing.bus-timing",
+      "mappedBy": "bus_route"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_business_timings",
+  "info": {
+    "displayName": "timing",
+    "icon": "clock",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "opensAt": {
+      "type": "time",
+      "default": "09:00"
+    },
+    "closesAt": {
+      "type": "time",
+      "default": "18:00"
+    },
+    "day": {
+      "type": "enumeration",
+      "enum": [
+        "All Days",
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      "default": "All Days"
+    }
+  }
+}

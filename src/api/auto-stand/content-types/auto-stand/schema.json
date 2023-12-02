@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "auto_stands",
+  "info": {
+    "singularName": "auto-stand",
+    "pluralName": "auto-stands",
+    "displayName": "Auto Stand",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "autos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::auto.auto",
+      "mappedBy": "auto_stand"
+    },
+    "name": {
+      "type": "string"
+    },
+    "malayalamName": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_common_names",
+  "info": {
+    "displayName": "name",
+    "icon": "earth"
+  },
+  "options": {},
+  "attributes": {
+    "english": {
+      "type": "string"
+    },
+    "malayalam": {
+      "type": "string"
+    }
+  }
+}

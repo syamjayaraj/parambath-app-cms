@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vehicle_categories",
+  "info": {
+    "singularName": "vehicle-category",
+    "pluralName": "vehicle-categories",
+    "displayName": "Vehicle Category"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "nameMalayalam": {
+      "type": "string"
+    },
+    "vehicles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::vehicle.vehicle",
+      "mappedBy": "vehicle_category"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "business_categories",
+  "info": {
+    "singularName": "business-category",
+    "pluralName": "business-categories",
+    "displayName": "Business Category"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "nameMalayalam": {
+      "type": "string"
+    },
+    "businesses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::business.business",
+      "mappedBy": "business_category"
+    }
+  }
+}

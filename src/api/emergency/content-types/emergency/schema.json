@@ -1,0 +1,66 @@
+{
+  "kind": "collectionType",
+  "collectionName": "emergencies",
+  "info": {
+    "singularName": "emergency",
+    "pluralName": "emergencies",
+    "displayName": "Emergency"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "emergency_category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::emergency-category.emergency-category",
+      "inversedBy": "emergencies"
+    },
+    "name": {
+      "type": "string"
+    },
+    "nameMalayalam": {
+      "type": "string"
+    },
+    "ownerName": {
+      "type": "string"
+    },
+    "ownerNameMalayalam": {
+      "type": "string"
+    },
+    "about": {
+      "type": "text"
+    },
+    "phoneNumber": {
+      "type": "string"
+    },
+    "phoneNumber2": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "website": {
+      "type": "string"
+    },
+    "place": {
+      "type": "string"
+    },
+    "address": {
+      "type": "text"
+    },
+    "whatsapp": {
+      "type": "string"
+    },
+    "facebook": {
+      "type": "string"
+    },
+    "instagram": {
+      "type": "string"
+    },
+    "youtube": {
+      "type": "string"
+    }
+  }
+}
