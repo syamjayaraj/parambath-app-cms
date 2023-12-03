@@ -69,11 +69,13 @@ export interface EventSchedule extends Schema.Component {
   info: {
     displayName: 'schedule';
     icon: 'bulletList';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
     day: Attribute.String;
     scheduleDay: Attribute.Component<'event.schedule-day', true>;
+    images: Attribute.Media;
   };
 }
 

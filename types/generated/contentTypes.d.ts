@@ -755,20 +755,19 @@ export interface ApiBusRouteBusRoute extends Schema.CollectionType {
     singularName: 'bus-route';
     pluralName: 'bus-routes';
     displayName: 'Bus Route';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    from: Attribute.String;
-    fromMalayalam: Attribute.String;
-    to: Attribute.String;
-    toMalayalam: Attribute.String;
     bus_timings: Attribute.Relation<
       'api::bus-route.bus-route',
       'oneToMany',
       'api::bus-timing.bus-timing'
     >;
+    name: Attribute.String;
+    nameMalayalam: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1110,12 +1109,12 @@ export interface ApiEventCategoryEventCategory extends Schema.CollectionType {
   attributes: {
     name: Attribute.String;
     nameMalayalam: Attribute.String;
-    icon: Attribute.String;
     events: Attribute.Relation<
       'api::event-category.event-category',
       'oneToMany',
       'api::event.event'
     >;
+    icon: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

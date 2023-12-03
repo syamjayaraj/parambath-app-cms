@@ -18,14 +18,21 @@
     "nameMalayalam": {
       "type": "string"
     },
-    "icon": {
-      "type": "string"
-    },
     "events": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::event.event",
       "mappedBy": "event_category"
+    },
+    "icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
