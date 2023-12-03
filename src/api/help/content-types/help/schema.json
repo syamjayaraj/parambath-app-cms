@@ -12,11 +12,11 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "titleDescription": {
-      "displayName": "titleDescription",
-      "type": "component",
-      "repeatable": true,
-      "component": "common.title-description"
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "text"
     }
   }
 }

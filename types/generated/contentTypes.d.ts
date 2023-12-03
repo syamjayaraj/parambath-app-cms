@@ -1145,7 +1145,8 @@ export interface ApiHelpHelp extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    titleDescription: Attribute.Component<'common.title-description', true>;
+    title: Attribute.String;
+    content: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
