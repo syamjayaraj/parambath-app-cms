@@ -1077,6 +1077,7 @@ export interface ApiEventEvent extends Schema.CollectionType {
     instagram: Attribute.String;
     youtube: Attribute.String;
     schedule: Attribute.Component<'event.schedule', true>;
+    images: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

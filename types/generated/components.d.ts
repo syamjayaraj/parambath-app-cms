@@ -75,7 +75,6 @@ export interface EventSchedule extends Schema.Component {
     title: Attribute.String;
     day: Attribute.String;
     scheduleDay: Attribute.Component<'event.schedule-day', true>;
-    images: Attribute.Media;
   };
 }
 

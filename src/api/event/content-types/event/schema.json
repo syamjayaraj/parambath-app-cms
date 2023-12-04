@@ -62,6 +62,16 @@
       "type": "component",
       "repeatable": true,
       "component": "event.schedule"
+    },
+    "images": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }
