@@ -724,13 +724,13 @@ export interface ApiAutoStandAutoStand extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
+    name: Attribute.String;
+    malayalamName: Attribute.String;
     autos: Attribute.Relation<
       'api::auto-stand.auto-stand',
       'oneToMany',
       'api::auto.auto'
     >;
-    name: Attribute.String;
-    malayalamName: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1439,6 +1439,102 @@ export interface ApiSettingSetting extends Schema.SingleType {
   };
 }
 
+export interface ApiSliderEventSliderEvent extends Schema.CollectionType {
+  collectionName: 'slider_events';
+  info: {
+    singularName: 'slider-event';
+    pluralName: 'slider-events';
+    displayName: 'Slider Event';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    image: Attribute.Media;
+    event: Attribute.Relation<
+      'api::slider-event.slider-event',
+      'oneToOne',
+      'api::event.event'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::slider-event.slider-event',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::slider-event.slider-event',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSliderHomeSliderHome extends Schema.CollectionType {
+  collectionName: 'slider_homes';
+  info: {
+    singularName: 'slider-home';
+    pluralName: 'slider-homes';
+    displayName: 'Slider Home';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    image: Attribute.Media;
+    business: Attribute.Relation<
+      'api::slider-home.slider-home',
+      'oneToOne',
+      'api::business.business'
+    >;
+    auto: Attribute.Relation<
+      'api::slider-home.slider-home',
+      'oneToOne',
+      'api::auto.auto'
+    >;
+    emergency: Attribute.Relation<
+      'api::slider-home.slider-home',
+      'oneToOne',
+      'api::emergency.emergency'
+    >;
+    small_business: Attribute.Relation<
+      'api::slider-home.slider-home',
+      'oneToOne',
+      'api::small-business.small-business'
+    >;
+    online_service: Attribute.Relation<
+      'api::slider-home.slider-home',
+      'oneToOne',
+      'api::online-service.online-service'
+    >;
+    worker: Attribute.Relation<
+      'api::slider-home.slider-home',
+      'oneToOne',
+      'api::worker.worker'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::slider-home.slider-home',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::slider-home.slider-home',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSmallBusinessSmallBusiness extends Schema.CollectionType {
   collectionName: 'small_businesses';
   info: {
@@ -1746,6 +1842,8 @@ declare module '@strapi/types' {
       'api::representative.representative': ApiRepresentativeRepresentative;
       'api::representative-category.representative-category': ApiRepresentativeCategoryRepresentativeCategory;
       'api::setting.setting': ApiSettingSetting;
+      'api::slider-event.slider-event': ApiSliderEventSliderEvent;
+      'api::slider-home.slider-home': ApiSliderHomeSliderHome;
       'api::small-business.small-business': ApiSmallBusinessSmallBusiness;
       'api::small-business-category.small-business-category': ApiSmallBusinessCategorySmallBusinessCategory;
       'api::term.term': ApiTermTerm;

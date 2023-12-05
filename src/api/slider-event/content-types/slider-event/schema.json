@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "slider_events",
+  "info": {
+    "singularName": "slider-event",
+    "pluralName": "slider-events",
+    "displayName": "Slider Event"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "event": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::event.event"
+    }
+  }
+}

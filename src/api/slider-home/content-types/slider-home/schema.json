@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "slider_homes",
+  "info": {
+    "singularName": "slider-home",
+    "pluralName": "slider-homes",
+    "displayName": "Slider Home",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "business": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::business.business"
+    },
+    "auto": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::auto.auto"
+    },
+    "emergency": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::emergency.emergency"
+    },
+    "small_business": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::small-business.small-business"
+    },
+    "online_service": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::online-service.online-service"
+    },
+    "worker": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::worker.worker"
+    }
+  }
+}
