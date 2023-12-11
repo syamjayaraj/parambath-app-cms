@@ -15,14 +15,14 @@
     "name": {
       "type": "string"
     },
-    "malayalamName": {
-      "type": "string"
-    },
     "autos": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::auto.auto",
       "mappedBy": "auto_stand"
+    },
+    "nameMalayalam": {
+      "type": "string"
     }
   }
 }

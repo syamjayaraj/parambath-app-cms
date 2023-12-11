@@ -725,12 +725,12 @@ export interface ApiAutoStandAutoStand extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String;
-    malayalamName: Attribute.String;
     autos: Attribute.Relation<
       'api::auto-stand.auto-stand',
       'oneToMany',
       'api::auto.auto'
     >;
+    nameMalayalam: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
