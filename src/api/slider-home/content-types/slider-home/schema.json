@@ -38,11 +38,6 @@
       "relation": "oneToOne",
       "target": "api::emergency.emergency"
     },
-    "small_business": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::small-business.small-business"
-    },
     "online_service": {
       "type": "relation",
       "relation": "oneToOne",
@@ -52,6 +47,11 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::worker.worker"
+    },
+    "vehicle": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::vehicle.vehicle"
     }
   }
 }

@@ -1439,6 +1439,42 @@ export interface ApiSettingSetting extends Schema.SingleType {
   };
 }
 
+export interface ApiSliderDeliverySliderDelivery extends Schema.CollectionType {
+  collectionName: 'slider_deliveries';
+  info: {
+    singularName: 'slider-delivery';
+    pluralName: 'slider-deliveries';
+    displayName: 'Slider Delivery';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    image: Attribute.Media;
+    business: Attribute.Relation<
+      'api::slider-delivery.slider-delivery',
+      'oneToOne',
+      'api::business.business'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::slider-delivery.slider-delivery',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::slider-delivery.slider-delivery',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSliderEventSliderEvent extends Schema.CollectionType {
   collectionName: 'slider_events';
   info: {
@@ -1502,11 +1538,6 @@ export interface ApiSliderHomeSliderHome extends Schema.CollectionType {
       'oneToOne',
       'api::emergency.emergency'
     >;
-    small_business: Attribute.Relation<
-      'api::slider-home.slider-home',
-      'oneToOne',
-      'api::small-business.small-business'
-    >;
     online_service: Attribute.Relation<
       'api::slider-home.slider-home',
       'oneToOne',
@@ -1517,6 +1548,11 @@ export interface ApiSliderHomeSliderHome extends Schema.CollectionType {
       'oneToOne',
       'api::worker.worker'
     >;
+    vehicle: Attribute.Relation<
+      'api::slider-home.slider-home',
+      'oneToOne',
+      'api::vehicle.vehicle'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1528,99 +1564,6 @@ export interface ApiSliderHomeSliderHome extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::slider-home.slider-home',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiSmallBusinessSmallBusiness extends Schema.CollectionType {
-  collectionName: 'small_businesses';
-  info: {
-    singularName: 'small-business';
-    pluralName: 'small-businesses';
-    displayName: 'Small Business';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    small_business_category: Attribute.Relation<
-      'api::small-business.small-business',
-      'manyToOne',
-      'api::small-business-category.small-business-category'
-    >;
-    name: Attribute.String;
-    nameMalayalam: Attribute.String;
-    about: Attribute.Text;
-    ownerName: Attribute.String;
-    ownerNameMalayalam: Attribute.String;
-    phoneNumber: Attribute.String;
-    phoneNumber2: Attribute.String;
-    timing: Attribute.Component<'business.timing', true>;
-    place: Attribute.String;
-    address: Attribute.Text;
-    email: Attribute.String;
-    website: Attribute.String;
-    facebook: Attribute.String;
-    instagram: Attribute.String;
-    whatsapp: Attribute.String;
-    onlineBookingUrl: Attribute.String;
-    youtube: Attribute.String;
-    upi: Attribute.Boolean;
-    card: Attribute.Boolean;
-    onlineDelivery: Attribute.Boolean;
-    images: Attribute.Media;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::small-business.small-business',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::small-business.small-business',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiSmallBusinessCategorySmallBusinessCategory
-  extends Schema.CollectionType {
-  collectionName: 'small_business_categories';
-  info: {
-    singularName: 'small-business-category';
-    pluralName: 'small-business-categories';
-    displayName: 'Small Business Category';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    name: Attribute.String;
-    nameMalayalam: Attribute.String;
-    small_businesses: Attribute.Relation<
-      'api::small-business-category.small-business-category',
-      'oneToMany',
-      'api::small-business.small-business'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::small-business-category.small-business-category',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::small-business-category.small-business-category',
       'oneToOne',
       'admin::user'
     > &
@@ -1842,10 +1785,9 @@ declare module '@strapi/types' {
       'api::representative.representative': ApiRepresentativeRepresentative;
       'api::representative-category.representative-category': ApiRepresentativeCategoryRepresentativeCategory;
       'api::setting.setting': ApiSettingSetting;
+      'api::slider-delivery.slider-delivery': ApiSliderDeliverySliderDelivery;
       'api::slider-event.slider-event': ApiSliderEventSliderEvent;
       'api::slider-home.slider-home': ApiSliderHomeSliderHome;
-      'api::small-business.small-business': ApiSmallBusinessSmallBusiness;
-      'api::small-business-category.small-business-category': ApiSmallBusinessCategorySmallBusinessCategory;
       'api::term.term': ApiTermTerm;
       'api::vehicle.vehicle': ApiVehicleVehicle;
       'api::vehicle-category.vehicle-category': ApiVehicleCategoryVehicleCategory;

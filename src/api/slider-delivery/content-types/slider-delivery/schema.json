@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "slider_deliveries",
+  "info": {
+    "singularName": "slider-delivery",
+    "pluralName": "slider-deliveries",
+    "displayName": "Slider Delivery",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "business": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::business.business"
+    }
+  }
+}
