@@ -4,7 +4,8 @@
   "info": {
     "singularName": "business-category",
     "pluralName": "business-categories",
-    "displayName": "Business Category"
+    "displayName": "Business Category",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -22,6 +23,10 @@
       "relation": "oneToMany",
       "target": "api::business.business",
       "mappedBy": "business_category"
+    },
+    "small": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

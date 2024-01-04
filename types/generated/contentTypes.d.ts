@@ -864,6 +864,7 @@ export interface ApiBusinessBusiness extends Schema.CollectionType {
     card: Attribute.Boolean & Attribute.DefaultTo<false>;
     onlineDelivery: Attribute.Boolean & Attribute.DefaultTo<false>;
     images: Attribute.Media;
+    small: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -889,6 +890,7 @@ export interface ApiBusinessCategoryBusinessCategory
     singularName: 'business-category';
     pluralName: 'business-categories';
     displayName: 'Business Category';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -901,6 +903,7 @@ export interface ApiBusinessCategoryBusinessCategory
       'oneToMany',
       'api::business.business'
     >;
+    small: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

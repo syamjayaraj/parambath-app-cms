@@ -93,6 +93,10 @@
         "videos",
         "audios"
       ]
+    },
+    "small": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
