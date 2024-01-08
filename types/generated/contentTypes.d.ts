@@ -1424,6 +1424,7 @@ export interface ApiSettingSetting extends Schema.SingleType {
     address: Attribute.Text;
     about: Attribute.Text;
     icon: Attribute.Media;
+    shareUrlMessage: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
