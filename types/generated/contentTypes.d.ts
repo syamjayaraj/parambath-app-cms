@@ -1230,6 +1230,38 @@ export interface ApiMoreCategoryMoreCategory extends Schema.CollectionType {
   };
 }
 
+export interface ApiNotificationNotification extends Schema.CollectionType {
+  collectionName: 'notifications';
+  info: {
+    singularName: 'notification';
+    pluralName: 'notifications';
+    displayName: 'Notification';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    content: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::notification.notification',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::notification.notification',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiOnlineServiceOnlineService extends Schema.CollectionType {
   collectionName: 'online_services';
   info: {
@@ -1784,6 +1816,7 @@ declare module '@strapi/types' {
       'api::help.help': ApiHelpHelp;
       'api::more.more': ApiMoreMore;
       'api::more-category.more-category': ApiMoreCategoryMoreCategory;
+      'api::notification.notification': ApiNotificationNotification;
       'api::online-service.online-service': ApiOnlineServiceOnlineService;
       'api::online-service-category.online-service-category': ApiOnlineServiceCategoryOnlineServiceCategory;
       'api::representative.representative': ApiRepresentativeRepresentative;
