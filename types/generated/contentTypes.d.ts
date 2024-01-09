@@ -1244,6 +1244,7 @@ export interface ApiNotificationNotification extends Schema.CollectionType {
   attributes: {
     title: Attribute.String;
     content: Attribute.Text;
+    date: Attribute.Date;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
