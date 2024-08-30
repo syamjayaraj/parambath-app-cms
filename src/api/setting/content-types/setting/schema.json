@@ -64,6 +64,10 @@
     },
     "shareUrlMessage": {
       "type": "text"
+    },
+    "contestOpen": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

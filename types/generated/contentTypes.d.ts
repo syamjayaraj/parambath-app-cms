@@ -1540,6 +1540,7 @@ export interface ApiSettingSetting extends Schema.SingleType {
     about: Attribute.Text;
     icon: Attribute.Media;
     shareUrlMessage: Attribute.Text;
+    contestOpen: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
