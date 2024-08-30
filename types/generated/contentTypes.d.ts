@@ -922,14 +922,6 @@ export interface ApiBusinessCategoryBusinessCategory
   };
 }
 
-<<<<<<< HEAD
-export interface ApiContributorContributor extends Schema.CollectionType {
-  collectionName: 'contributors';
-  info: {
-    singularName: 'contributor';
-    pluralName: 'contributors';
-    displayName: 'Contributor';
-=======
 export interface ApiContestContest extends Schema.CollectionType {
   collectionName: 'contests';
   info: {
@@ -937,24 +929,11 @@ export interface ApiContestContest extends Schema.CollectionType {
     pluralName: 'contests';
     displayName: 'Contest';
     description: '';
->>>>>>> ca2fbec21a39d71d665a198866cc55e9fd973d12
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-<<<<<<< HEAD
-    name: Attribute.String;
-    icon: Attribute.Media;
-    images: Attribute.Media;
-    role: Attribute.String;
-    instagram: Attribute.String;
-    facebook: Attribute.String;
-    phoneNumber: Attribute.String;
-    phoneNumber2: Attribute.String;
-    email: Attribute.String;
-    whatsapp: Attribute.String;
-=======
     title: Attribute.String;
     description: Attribute.Text;
     image: Attribute.Media;
@@ -967,24 +946,16 @@ export interface ApiContestContest extends Schema.CollectionType {
     prize: Attribute.String;
     question: Attribute.Text;
     option: Attribute.Component<'contest.option', true>;
->>>>>>> ca2fbec21a39d71d665a198866cc55e9fd973d12
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-<<<<<<< HEAD
-      'api::contributor.contributor',
-=======
       'api::contest.contest',
->>>>>>> ca2fbec21a39d71d665a198866cc55e9fd973d12
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-<<<<<<< HEAD
-      'api::contributor.contributor',
-=======
       'api::contest.contest',
       'oneToOne',
       'admin::user'
@@ -1026,7 +997,45 @@ export interface ApiContestParticipantContestParticipant
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::contest-participant.contest-participant',
->>>>>>> ca2fbec21a39d71d665a198866cc55e9fd973d12
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiContributorContributor extends Schema.CollectionType {
+  collectionName: 'contributors';
+  info: {
+    singularName: 'contributor';
+    pluralName: 'contributors';
+    displayName: 'Contributor';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    icon: Attribute.Media;
+    images: Attribute.Media;
+    role: Attribute.String;
+    instagram: Attribute.String;
+    facebook: Attribute.String;
+    phoneNumber: Attribute.String;
+    phoneNumber2: Attribute.String;
+    email: Attribute.String;
+    whatsapp: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contributor.contributor',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contributor.contributor',
       'oneToOne',
       'admin::user'
     > &
@@ -1882,12 +1891,9 @@ declare module '@strapi/types' {
       'api::bus-timing.bus-timing': ApiBusTimingBusTiming;
       'api::business.business': ApiBusinessBusiness;
       'api::business-category.business-category': ApiBusinessCategoryBusinessCategory;
-<<<<<<< HEAD
-      'api::contributor.contributor': ApiContributorContributor;
-=======
       'api::contest.contest': ApiContestContest;
       'api::contest-participant.contest-participant': ApiContestParticipantContestParticipant;
->>>>>>> ca2fbec21a39d71d665a198866cc55e9fd973d12
+      'api::contributor.contributor': ApiContributorContributor;
       'api::emergency.emergency': ApiEmergencyEmergency;
       'api::emergency-category.emergency-category': ApiEmergencyCategoryEmergencyCategory;
       'api::event.event': ApiEventEvent;

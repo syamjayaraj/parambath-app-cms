@@ -38,7 +38,6 @@ export interface CommonName extends Schema.Component {
   };
 }
 
-<<<<<<< HEAD
 export interface CommonTitleDescription extends Schema.Component {
   collectionName: 'components_common_title_descriptions';
   info: {
@@ -49,6 +48,18 @@ export interface CommonTitleDescription extends Schema.Component {
   attributes: {
     title: Attribute.String;
     description: Attribute.Text;
+  };
+}
+
+export interface ContestOption extends Schema.Component {
+  collectionName: 'components_contest_options';
+  info: {
+    displayName: 'option';
+    icon: 'arrowRight';
+  };
+  attributes: {
+    title: Attribute.String;
+    correct: Attribute.Boolean & Attribute.DefaultTo<false>;
   };
 }
 
@@ -76,17 +87,6 @@ export interface EventSchedule extends Schema.Component {
     title: Attribute.String;
     day: Attribute.String;
     scheduleDay: Attribute.Component<'event.schedule-day', true>;
-=======
-export interface ContestOption extends Schema.Component {
-  collectionName: 'components_contest_options';
-  info: {
-    displayName: 'option';
-    icon: 'arrowRight';
-  };
-  attributes: {
-    title: Attribute.String;
-    correct: Attribute.Boolean & Attribute.DefaultTo<false>;
->>>>>>> ca2fbec21a39d71d665a198866cc55e9fd973d12
   };
 }
 
@@ -95,13 +95,10 @@ declare module '@strapi/types' {
     export interface Components {
       'business.timing': BusinessTiming;
       'common.name': CommonName;
-<<<<<<< HEAD
       'common.title-description': CommonTitleDescription;
+      'contest.option': ContestOption;
       'event.schedule-day': EventScheduleDay;
       'event.schedule': EventSchedule;
-=======
-      'contest.option': ContestOption;
->>>>>>> ca2fbec21a39d71d665a198866cc55e9fd973d12
     }
   }
 }
