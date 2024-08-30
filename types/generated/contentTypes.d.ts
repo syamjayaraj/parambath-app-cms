@@ -920,6 +920,88 @@ export interface ApiBusinessCategoryBusinessCategory
   };
 }
 
+export interface ApiContestContest extends Schema.CollectionType {
+  collectionName: 'contests';
+  info: {
+    singularName: 'contest';
+    pluralName: 'contests';
+    displayName: 'Contest';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    image: Attribute.Media;
+    contest_participants: Attribute.Relation<
+      'api::contest.contest',
+      'oneToMany',
+      'api::contest-participant.contest-participant'
+    >;
+    endDate: Attribute.DateTime;
+    prize: Attribute.String;
+    question: Attribute.Text;
+    option: Attribute.Component<'contest.option', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contest.contest',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contest.contest',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiContestParticipantContestParticipant
+  extends Schema.CollectionType {
+  collectionName: 'contest_participants';
+  info: {
+    singularName: 'contest-participant';
+    pluralName: 'contest-participants';
+    displayName: 'Contest Participant';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    phoneNumber: Attribute.String;
+    contest: Attribute.Relation<
+      'api::contest-participant.contest-participant',
+      'manyToOne',
+      'api::contest.contest'
+    >;
+    note: Attribute.Text;
+    answer: Attribute.Boolean;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contest-participant.contest-participant',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contest-participant.contest-participant',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiEmergencyEmergency extends Schema.CollectionType {
   collectionName: 'emergencies';
   info: {
@@ -1184,6 +1266,8 @@ declare module '@strapi/types' {
       'api::bus-timing.bus-timing': ApiBusTimingBusTiming;
       'api::business.business': ApiBusinessBusiness;
       'api::business-category.business-category': ApiBusinessCategoryBusinessCategory;
+      'api::contest.contest': ApiContestContest;
+      'api::contest-participant.contest-participant': ApiContestParticipantContestParticipant;
       'api::emergency.emergency': ApiEmergencyEmergency;
       'api::emergency-category.emergency-category': ApiEmergencyCategoryEmergencyCategory;
       'api::vehicle.vehicle': ApiVehicleVehicle;

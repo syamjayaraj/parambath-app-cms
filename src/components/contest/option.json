@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_contest_options",
+  "info": {
+    "displayName": "option",
+    "icon": "arrowRight"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "correct": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

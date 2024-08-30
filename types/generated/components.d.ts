@@ -38,11 +38,24 @@ export interface CommonName extends Schema.Component {
   };
 }
 
+export interface ContestOption extends Schema.Component {
+  collectionName: 'components_contest_options';
+  info: {
+    displayName: 'option';
+    icon: 'arrowRight';
+  };
+  attributes: {
+    title: Attribute.String;
+    correct: Attribute.Boolean & Attribute.DefaultTo<false>;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'business.timing': BusinessTiming;
       'common.name': CommonName;
+      'contest.option': ContestOption;
     }
   }
 }
